@@ -13,7 +13,7 @@ from cherrypy import _cplogging, _cpconfig, _cplogging, _cprequest, _cpwsgi, too
 from operator import attrgetter
 import json
 #from collections import OrderedDict
-from ordereddict import OrderedDict
+from marshmallow.ordereddict import OrderedDict
 from utils import * 
 
 #NEW IMPORT
@@ -1103,13 +1103,13 @@ class Root(object):
     
 if __name__ == '__main__':
     
-    from Config.Config import *
+    from Config import *
     
     # Register the SQLAlchemy plugin
     from sqlalchemy_plugin.saplugin import SAEnginePlugin
     
     # Load configuration
-    from Config import connectUrl, cpconfig, base_url
+    from Config import cpconfig, base_url
     
     connectionString = ConnectionString()
     SAEnginePlugin(cherrypy.engine, connectionString).subscribe()
